@@ -29,7 +29,7 @@ export async function GET(request: NextRequest, { params }: { params: { path: st
 
   // Construct the upstream URL
   const path = params.path.join("/")
-  const upstream_url = `https://${upstream_domain}/${path}${url.search}`
+  const upstream_url = `https://${upstream_domain}/avatar/${path}${url.search}`
 
   try {
     // Fetch from upstream
@@ -117,4 +117,3 @@ function replace_response_text(text: string, upstream_domain: string, host_name:
   }
   return text
 }
-
