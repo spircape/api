@@ -13,7 +13,7 @@ export default function Home() {
   const [copied, setCopied] = useState<string | null>(null)
   const baseUrl = typeof window !== "undefined" ? window.location.origin : ""
   const randomImageUrl = `${baseUrl}/random-image`
-  const gravatarProxyUrl = `${baseUrl}/gravatar`
+  const gravatarProxyUrl = `${baseUrl}/avatar`
 
   const copyToClipboard = (text: string, id: string) => {
     navigator.clipboard.writeText(text)
@@ -28,9 +28,7 @@ export default function Home() {
           <h1 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-600 mb-4">
             API Services
           </h1>
-          <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-            Connect the world with us
-          </p>
+          <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">Connect the world with us</p>
         </header>
 
         <Alert
@@ -160,7 +158,7 @@ export default function Home() {
                       </h4>
                       <div className="relative">
                         <pre className="bg-slate-950 text-slate-100 p-4 rounded-md overflow-x-auto">
-                          <code>{`<!-- Replace [EMAIL_HASH] with MD5 hash of the email -->\n<img src="${gravatarProxyUrl}/avatar/[EMAIL_HASH]" alt="User avatar" />`}</code>
+                          <code>{`<!-- Replace [EMAIL_HASH] with MD5 hash of the email -->\n<img src="${gravatarProxyUrl}/[EMAIL_HASH]" alt="User avatar" />`}</code>
                         </pre>
                         <Button
                           variant="ghost"
@@ -168,7 +166,7 @@ export default function Home() {
                           className="absolute top-2 right-2 text-slate-400 hover:text-white hover:bg-slate-800"
                           onClick={() =>
                             copyToClipboard(
-                              `<!-- Replace [EMAIL_HASH] with MD5 hash of the email -->\n<img src="${gravatarProxyUrl}/avatar/[EMAIL_HASH]" alt="User avatar" />`,
+                              `<!-- Replace [EMAIL_HASH] with MD5 hash of the email -->\n<img src="${gravatarProxyUrl}/[EMAIL_HASH]" alt="User avatar" />`,
                               "html-gravatar",
                             )
                           }
@@ -189,7 +187,7 @@ export default function Home() {
                       </h4>
                       <div className="relative">
                         <pre className="bg-slate-950 text-slate-100 p-4 rounded-md overflow-x-auto">
-                          <code>{`<!-- Set size to 200px -->\n<img src="${gravatarProxyUrl}/avatar/[EMAIL_HASH]?s=200" alt="User avatar" />`}</code>
+                          <code>{`<!-- Set size to 200px -->\n<img src="${gravatarProxyUrl}/[EMAIL_HASH]?s=200" alt="User avatar" />`}</code>
                         </pre>
                         <Button
                           variant="ghost"
@@ -197,7 +195,7 @@ export default function Home() {
                           className="absolute top-2 right-2 text-slate-400 hover:text-white hover:bg-slate-800"
                           onClick={() =>
                             copyToClipboard(
-                              `<!-- Set size to 200px -->\n<img src="${gravatarProxyUrl}/avatar/[EMAIL_HASH]?s=200" alt="User avatar" />`,
+                              `<!-- Set size to 200px -->\n<img src="${gravatarProxyUrl}/[EMAIL_HASH]?s=200" alt="User avatar" />`,
                               "size-gravatar",
                             )
                           }
@@ -218,7 +216,7 @@ export default function Home() {
                       </h4>
                       <div className="relative">
                         <pre className="bg-slate-950 text-slate-100 p-4 rounded-md overflow-x-auto">
-                          <code>{`<!-- Use 'identicon' as default if email has no Gravatar -->\n<img src="${gravatarProxyUrl}/avatar/[EMAIL_HASH]?d=identicon" alt="User avatar" />`}</code>
+                          <code>{`<!-- Use 'identicon' as default if email has no Gravatar -->\n<img src="${gravatarProxyUrl}/[EMAIL_HASH]?d=identicon" alt="User avatar" />`}</code>
                         </pre>
                         <Button
                           variant="ghost"
@@ -226,7 +224,7 @@ export default function Home() {
                           className="absolute top-2 right-2 text-slate-400 hover:text-white hover:bg-slate-800"
                           onClick={() =>
                             copyToClipboard(
-                              `<!-- Use 'identicon' as default if email has no Gravatar -->\n<img src="${gravatarProxyUrl}/avatar/[EMAIL_HASH]?d=identicon" alt="User avatar" />`,
+                              `<!-- Use 'identicon' as default if email has no Gravatar -->\n<img src="${gravatarProxyUrl}/[EMAIL_HASH]?d=identicon" alt="User avatar" />`,
                               "default-gravatar",
                             )
                           }
@@ -247,7 +245,9 @@ export default function Home() {
           <CardFooter className="border-t bg-slate-50 dark:bg-slate-900 py-4">
             <div className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
               <ExternalLink className="h-4 w-4" />
-              <span>The above is for example only, please adjust according to the specific development environment</span>
+              <span>
+                The above is for example only, please adjust according to the specific development environment
+              </span>
             </div>
           </CardFooter>
         </Card>
@@ -261,4 +261,3 @@ export default function Home() {
     </div>
   )
 }
-
